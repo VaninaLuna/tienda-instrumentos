@@ -1,0 +1,84 @@
+.contenido {
+  background-color: #ededed;
+  font-family: system-ui, Roboto, sans-serif;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 80%;
+}
+
+.descripcion {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  padding-right: 15px;
+}
+
+.descripcion img {
+  width: 40%;
+  height: auto;
+  margin: auto;
+}
+
+.descripcion p {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.detalle {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.cantidad-detalle {
+  color: gray;
+  font-size: small;
+}
+
+.titulo-detalle {
+  margin: 0px;
+  font-size: 30px;
+}
+
+.precio-detalle {
+  font-size: 50px;
+  margin: 10px 0px;
+  font-weight: 100;
+}
+
+.marca-detalle {
+  margin-bottom: 0px;
+}
+
+.modelo-detalle {
+  margin-top: 0px;
+}
+
+.costo-detalle {
+  margin-bottom: 0px;
+}
+
+.detalle button {
+  margin-top: 30px;
+  width: 150px;
+  height: 70px;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: #56ad61;
+  color: #56ad61;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.detalle button:hover {
+  background-color: #038514;
+  transition-duration: 0.4s;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
