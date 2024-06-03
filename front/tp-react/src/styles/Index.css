@@ -27,7 +27,7 @@
     width: 100vw; 
     min-width: min-content;
     /* height: 100vh;  */
-    min-height: min-content;
+    min-height: 100vh;
   }
   
   h1 {

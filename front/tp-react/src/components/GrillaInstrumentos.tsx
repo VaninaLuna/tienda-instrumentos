@@ -37,7 +37,7 @@ function OpcionesGrilla({ setIdCategoria, usuarioLogueado }: { setIdCategoria: (
         <>
             <div className="d-flex justify-content-center align-items-center mb-4 mt-5" style={{ gap: '400px' }}>
 
-                {(usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN) ? <a className="btn btn-primary mr-3" style={{ width: '150px' }} href={`/formulario/0`}>Nuevo</a> : <p></p>}
+                {(usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN) ? <a className="btn btn-primary mr-3" style={{ width: '150px', backgroundColor: '#FE7243', fontWeight: 'initial', color: 'whitesmoke' }} href={`/formulario/0`}>Nuevo</a> : <p></p>}
 
                 <div className="d-flex flex-row align-items-center" style={{ gap: '10px' }}>
                     <label htmlFor="comboCategoria">Filtrar por Categoria: </label>
@@ -63,7 +63,7 @@ function TablaInstrumentos({ instrumentos, eliminarInstrumento, usuarioLogueado 
 
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {/* <th>ID</th> */}
                         <th>Instrumento</th>
                         <th>Marca</th>
                         <th>Modelo</th>
@@ -77,7 +77,7 @@ function TablaInstrumentos({ instrumentos, eliminarInstrumento, usuarioLogueado 
                 <tbody>
                     {instrumentos.map((instrumento: Instrumento) =>
                         <tr key={instrumento.id}>
-                            <td>{instrumento.id}</td>
+                            {/* <td>{instrumento.id}</td> */}
                             <td style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={instrumento.instrumento}>
                                 {instrumento.instrumento}
                             </td>
@@ -89,7 +89,7 @@ function TablaInstrumentos({ instrumentos, eliminarInstrumento, usuarioLogueado 
                             {
                                 (usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN)
                                     ? <td>
-                                        <a className="btn btn-info" style={{ marginBottom: 10 }} href={`/formulario/${instrumento.id}`}>Modificar</a>
+                                        <a className="btn btn-success" style={{ marginBottom: 10, backgroundColor: '#2AB827', fontWeight: 'initial', color: 'whitesmoke' }} href={`/formulario/${instrumento.id}`}>Modificar</a>
                                     </td>
                                     :
                                     <td> </td>
@@ -98,7 +98,7 @@ function TablaInstrumentos({ instrumentos, eliminarInstrumento, usuarioLogueado 
                             {
                                 (usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN)
                                     ? <td>
-                                        <a className="btn btn-danger" style={{ marginBottom: 10 }} onClick={() => eliminarInstrumento(Number(instrumento.id))}>Eliminar</a>
+                                        <a className="btn btn-danger" style={{ marginBottom: 10, backgroundColor: '#B82727', fontWeight: 'initial', color: 'whitesmoke' }} onClick={() => eliminarInstrumento(Number(instrumento.id))}>Eliminar</a>
                                     </td>
                                     :
                                     <td> </td>

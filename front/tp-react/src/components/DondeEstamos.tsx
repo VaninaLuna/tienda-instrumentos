@@ -32,6 +32,10 @@ export default function DondeEstamos() {
                 <div className="d-flex justify-content-center">
                     <Mapa />
                 </div>
+                <br />
+                <div className="d-flex justify-content-center">
+                    <p style={{ alignSelf: "center" }}>Nos encontramos en la calle San Martin y Las heras. Ciudad de Mendoza. Argentina.</p>
+                </div>
             </div>
 
 

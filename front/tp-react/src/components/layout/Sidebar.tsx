@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import Usuario from '../../entities/Usuario';
 import { AuthContext } from '../../context/AuthContext';
 import { RolName } from '../../entities/RolName';
+import '../../styles/Sidebar.css';
 
 
 function Sidebar() {
@@ -18,7 +19,7 @@ function Sidebar() {
 
     return (
         <div className="d-flex " >
-            <CSidebar colorScheme="dark" className="bg-dark collapse border-end d-md-block d-block" id="sidebarCollapse" style={{ position: 'relative', height: '100%', backgroundColor: '#E0E0E0' }} unfoldable>
+            <CSidebar colorScheme="dark" className="collapse border-end d-md-block d-block" id="sidebarCollapse" style={{ position: 'relative', height: '100%', backgroundColor: '#585d5d' }} unfoldable>
                 <CSidebarNav>
                     <CNavItem>
                         <NavLink to="/home" className="nav-link">
@@ -90,12 +91,6 @@ function Sidebar() {
                                         <NavLink to="/reporteExcel" className="nav-link">
                                             <span className="nav-icon"><span className="nav-icon-bullet"></span></span>
                                             Excel
-                                        </NavLink>
-                                    </CNavItem>
-                                    <CNavItem>
-                                        <NavLink to="/pdf" className="nav-link">
-                                            <span className="nav-icon"><span className="nav-icon-bullet"></span></span>
-                                            PDF
                                         </NavLink>
                                     </CNavItem>
                                 </CNavGroup>

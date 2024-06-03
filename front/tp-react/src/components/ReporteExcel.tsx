@@ -76,7 +76,7 @@ const ReporteExcel = () => {
                         {message && <p style={{ color: 'red', lineHeight: 5, padding: 5 }}>{message}</p>}
                     </div>
 
-                    <button type="submit" className="btn btn-success">Generar Reporte</button>
+                    <button type="submit" className="btn btn-success" style={{ backgroundColor: '#e06f72', border: '#e06f72', fontWeight: 'initial', color: 'whitesmoke' }}>Generar Reporte</button>
                 </form>
             </div>
         </>

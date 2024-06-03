@@ -3,9 +3,6 @@ import { useInstrumentoDetalle } from "../hooks/useInstrumentoDetalle";
 import "../styles/InstrumentoDetalle.css";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import CarritoOff from "./CarritoOff";
-import { useState } from "react";
-import Instrumento from "../entities/InstrumentoEntity";
 
 
 function EnvioConCosto({ costo }: { costo: string }) {
@@ -32,13 +29,17 @@ export function InstrumentoDetalle() {
 
     const envioGratis = instrumento?.costoEnvio === "G";
 
-    const [carritoInstrumento, setCarritoInstrumento] = useState<Instrumento>();
-    const [offcanvasVisible, setOffcanvasVisible] = useState(false);
+    // const [carritoInstrumento, setCarritoInstrumento] = useState<Instrumento>();
+    // const [verCarrito, setVerCarrito] = useState(false);
 
-    const handleAgregarAlCarrito = () => {
-        setCarritoInstrumento(instrumento);
-        setOffcanvasVisible(true);
-    }
+    // const handleVerCarrito = () => {
+    //     setVerCarrito(true);
+    // }
+
+    // const handleAgregarAlCarrito = () => {
+    //     // setCarritoInstrumento(instrumento);
+    //     // setVerCarrito(true);
+    // }
 
     const handleDownloadPDF = async () => {
         const input = document.getElementById('pdf-content');
@@ -89,25 +90,17 @@ export function InstrumentoDetalle() {
                                 ? <EnvioGratis />
                                 : <EnvioConCosto costo={instrumento?.costoEnvio ?? ""} />
                         }
-                        <button type="button" className="btn btn-success mt-4" onClick={handleAgregarAlCarrito}>Agregar al Carrito</button>
+                        {/* <button type="button" className="btn btn-success mt-4" onClick={handleAgregarAlCarrito}>Agregar al Carrito</button> */}
                     </div>
                 </div>
             </div>
 
             <div className="mb-4 d-flex flex-row" style={{ justifyContent: "space-between" }}>
-                <button onClick={handleVolver} className="btn btn-warning mt-4">Volver</button>
-                <button onClick={handleDownloadPDF} className="btn btn-primary mt-4">Descargar como PDF</button>
+                <button onClick={handleVolver} className="btn btn-warning mt-4" style={{ backgroundColor: '#e4b17d', border: '#e4b17d' }}>Volver</button>
+
+                <button onClick={handleDownloadPDF} className="btn btn-primary mt-4" style={{ backgroundColor: '#e06f72', border: '#e06f72' }}>Descargar como PDF</button>
 
             </div>
-
-            {carritoInstrumento && (
-                <CarritoOff
-                    visible={offcanvasVisible}
-                    setVisible={setOffcanvasVisible}
-                    instrumento={carritoInstrumento}
-                />
-            )}
-
         </>
     )
 }

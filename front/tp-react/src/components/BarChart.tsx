@@ -44,7 +44,7 @@ const BarChart = () => {
                         {
                             label: 'Cantidad de Pedidos',
                             data: counts,
-                            backgroundColor: '#B6F596',
+                            backgroundColor: '#e7a17a',
                             borderWidth: 4,
                         },
                     ],

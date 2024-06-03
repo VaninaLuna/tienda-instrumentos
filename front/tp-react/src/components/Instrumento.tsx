@@ -55,7 +55,7 @@ export function Instrumento(args: InstrumentoParams) {
                 <p>{instrumento.cantidadVendida} vendidos</p>
 
                 <div className="text-right">
-                    <a href={`producto/${instrumento.id}`} className="btn btn-success">Ver detalles</a>
+                    <a href={`producto/${instrumento.id}`} className="btn btn-success" style={{ width: '150px', backgroundColor: '#e06f72', border: '#e06f72', fontWeight: 'initial', color: 'whitesmoke' }} >Ver detalles</a>
                 </div>
 
                 <hr />

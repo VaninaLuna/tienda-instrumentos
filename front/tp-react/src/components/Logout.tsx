@@ -21,7 +21,7 @@ const Logout: React.FC = () => {
         navigate('/home');
     };
 
-    return <button className="btn btn-warning" onClick={handleLogout}>Cerrar sesión</button>;
+    return <button className="btn btn-secondary" onClick={handleLogout}>Cerrar sesión</button>;
 };
 
 export default Logout;

@@ -69,7 +69,7 @@ export default function Login() {
                     </div>
 
                     <div className="col mb-4">
-                        <button type="submit" className="btn btn-success">Iniciar Sesión</button>
+                        <button type="submit" className="btn btn-success" style={{ fontWeight: 'initial', color: 'whitesmoke' }}>Iniciar Sesión</button>
                     </div>
                 </form>
             </div>

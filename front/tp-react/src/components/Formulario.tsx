@@ -7,6 +7,7 @@ import { getInstrumentoPorID, saveInstrumento } from "../services/FuncionesApi";
 import { useCategoria } from "../hooks/useCategoria";
 import { useFormulario } from "../hooks/useFormulario";
 import { CFormSelect } from "@coreui/react";
+import { Col, Row } from "react-bootstrap";
 
 export default function Formulario() {
 
@@ -49,26 +50,38 @@ export default function Formulario() {
                     <label htmlFor="txtNombre" className="form-label">Nombre</label>
                     <input type="text" id='txtNombre' className="form-control" placeholder="Ingrese el nombre" defaultValue={instrumento?.instrumento} onChange={e => instrumento.instrumento = String(e.target.value)} />
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="txtMarca" className="form-label">Marca</label>
-                    <input type="text" id='txtMarca' className="form-control" placeholder="Ingrese la marca" defaultValue={instrumento?.marca} onChange={e => instrumento.marca = String(e.target.value)} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="txtModelo" className="form-label">Modelo</label>
-                    <input type="text" id='txtModelo' className="form-control" placeholder="Ingrese el modelo" defaultValue={instrumento?.modelo} onChange={e => instrumento.modelo = String(e.target.value)} />
-                </div>
+                <Row>
+                    <Col>
+                        <div className="mb-3">
+                            <label htmlFor="txtMarca" className="form-label">Marca</label>
+                            <input type="text" id='txtMarca' className="form-control" placeholder="Ingrese la marca" defaultValue={instrumento?.marca} onChange={e => instrumento.marca = String(e.target.value)} />
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="mb-3">
+                            <label htmlFor="txtModelo" className="form-label">Modelo</label>
+                            <input type="text" id='txtModelo' className="form-control" placeholder="Ingrese el modelo" defaultValue={instrumento?.modelo} onChange={e => instrumento.modelo = String(e.target.value)} />
+                        </div>
+                    </Col>
+                </Row>
                 <div className="mb-3">
                     <label htmlFor="txtImagen" className="form-label">Imagen</label>
                     <input type="text" id='txtImagen' className="form-control" placeholder="Ingrese el path de la imagen" defaultValue={instrumento?.imagen} onChange={e => instrumento.imagen = String(e.target.value)} />
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="txtPrecio" className="form-label">Precio</label>
-                    <input type="text" id='txtPrecio' className="form-control" placeholder="Ingrese el precio" value={instrumento?.precio} onChange={e => setInstrumento({ ...instrumento, precio: Number(e.target.value) })} />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="txtCostoEnvio" className="form-label">Costo de Envio</label>
-                    <input type="text" id='txtCostoEnvio' className="form-control" placeholder="Ingrese el costo de envio" defaultValue={instrumento?.costoEnvio} onChange={e => instrumento.costoEnvio = String(e.target.value)} />
-                </div>
+                <Row>
+                    <Col>
+                        <div className="mb-3">
+                            <label htmlFor="txtPrecio" className="form-label">Precio</label>
+                            <input type="text" id='txtPrecio' className="form-control" placeholder="Ingrese el precio" value={instrumento?.precio} onChange={e => setInstrumento({ ...instrumento, precio: Number(e.target.value) })} />
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="mb-3">
+                            <label htmlFor="txtCostoEnvio" className="form-label">Costo de Envio</label>
+                            <input type="text" id='txtCostoEnvio' className="form-control" placeholder="Ingrese el costo de envio" defaultValue={instrumento?.costoEnvio} onChange={e => instrumento.costoEnvio = String(e.target.value)} />
+                        </div>
+                    </Col>
+                </Row>
                 <div className="mb-3">
                     <label htmlFor="txtCantidadVendida" className="form-label">Cantidad Vendida</label>
                     <input type="text" id='txtCantidadVendida' className="form-control" placeholder="Ingrese la cantidad vendida" value={instrumento?.cantidadVendida} onChange={e => setInstrumento({ ...instrumento, cantidadVendida: Number(e.target.value) })} />

@@ -23,7 +23,7 @@ export function Home() {
     return (
         <>
             <div className="d-flex justify-content-center">
-                <h1 style={{ alignSelf: "center" }}>Musical Hendrix</h1>
+                <h1 style={{ alignSelf: "center" }}>Tienda Musical Hendrix</h1>
             </div>
             <div className="d-flex flex-column w-50 justify-content-center m-auto"
                 style={{ minHeight: '80vh' }}>

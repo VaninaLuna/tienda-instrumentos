@@ -89,7 +89,7 @@ const Register: React.FC = () => {
                     </div>
 
                     <div className="col mb-4">
-                        <button type="submit" className="btn btn-success">Registrarse</button>
+                        <button type="submit" className="btn btn-success" style={{ fontWeight: 'initial', color: 'whitesmoke' }}>Registrarse</button>
                     </div>
                 </form>
             </div>
