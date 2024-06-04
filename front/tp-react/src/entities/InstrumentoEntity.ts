@@ -5,6 +5,7 @@ export default class Instrumento {
     instrumento: string = "";
     marca: string = "";
     modelo: string = "";
+    imagenPath: string = "";
     imagen: string = "";
     precio: number = 0;
     costoEnvio: string = "";

@@ -33,7 +33,7 @@ export const useFormulario = (initialInstrumento: Instrumento) => {
             setTxtValidacion("Debe ingresar el costo de envío del instrumento");
             return false;
         }
-        if (instrumento?.cantidadVendida === undefined || instrumento.cantidadVendida === 0) {
+        if (instrumento?.cantidadVendida === undefined) {
             setTxtValidacion("Debe ingresar la cantidad vendida del instrumento");
             return false;
         }

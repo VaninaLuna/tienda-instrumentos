@@ -74,7 +74,7 @@ export function InstrumentoDetalle() {
                 style={{ minHeight: '80vh' }}>
                 <div id="pdf-content" className="contenido">
                     <div className="descripcion">
-                        <img src={`/img/${instrumento?.imagen}`} alt={instrumento?.instrumento} className="img-publicacion" />
+                        <img src={`${instrumento?.imagenPath},${instrumento?.imagen}`} alt={instrumento?.instrumento} className="img-publicacion" />
                         <p>Descripcion</p>
                         <p style={{ padding: '20px' }}>{instrumento?.descripcion}</p>
                     </div>

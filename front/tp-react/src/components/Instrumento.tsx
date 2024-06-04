@@ -43,7 +43,7 @@ export function Instrumento(args: InstrumentoParams) {
 
     return (
         < div className="card m-4 mx-auto text-center" style={{ width: '25rem' }}>
-            <img src={`/img/${instrumento.imagen}`} className="card-img-top" alt={instrumento.instrumento} />
+            <img src={`${instrumento.imagenPath},${instrumento.imagen}`} className="card-img-top" alt={instrumento.instrumento} />
             <div className="card-body altura-cuerpo d-flex flex-column justify-content-between">
                 <h5 className="card-title">{instrumento.instrumento}</h5>
                 <p className="card-text">{`$${instrumento.precio}`}</p>

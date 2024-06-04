@@ -21,7 +21,10 @@ public class Instrumento implements Serializable {
     private String instrumento;
     private String marca;
     private String modelo;
-    private String imagen;
+    @Lob
+    @Column(name = "imagen", columnDefinition = "LONGBLOB")
+    private byte[] imagen;
+    private String imagenPath;
     private double precio;
     private String costoEnvio;
     private int cantidadVendida;
@@ -31,6 +34,7 @@ public class Instrumento implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idCategoria")
     private CategoriaInstrumento categoriaInstrumento;
+
 
     /*
     @ManyToOne(fetch = FetchType.EAGER)

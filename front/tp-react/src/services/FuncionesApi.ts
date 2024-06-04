@@ -37,14 +37,16 @@ export async function getInstrumentoPorID(id: number) {
             throw new Error(`Error al obtener los datos: ${response.status} ${response.statusText}`);
         }
 
-        const json = await response.json();
+        const json = await response.json();      
+
         return json as Instrumento;
     } catch (e) {
         throw new Error('Error al hacer fetch de instrumentos')
     }
 }
 
-export async function saveInstrumento(instrumento?: Instrumento) {
+export async function saveInstrumento(instrumento: Instrumento) {
+    
     let endpoint = 'http://localhost:9000/instrumento';
     let method: string = "POST";
 

@@ -17,7 +17,7 @@ function CartItem({ item, addCarrito, removeItemCarrito }: { item: PedidoDetalle
     return (
         <li key={item.id}>
             <img
-                src={`/img/${item.instrumento.imagen}`}
+                src={`${item.instrumento.imagenPath},${item.instrumento.imagen}`}
                 alt={item.instrumento.instrumento}
             />
             <div>
@@ -40,9 +40,10 @@ export function Carrito({ visible, setVisible }: { visible: boolean, setVisible:
     const [showModal, setShowModal] = useState(false);
     const [savedPedido, setSavedPedido] = useState<Pedido | null>(null);
     const [message, setMessage] = useState<string>('');
-    const [pagoRealizado, setPagoRealizado] = useState(false);
+    const [pagoRealizado] = useState(false);
     const [pedidoGuardado, setPedidoGuardado] = useState(false);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [jsonUsuario] = useState<any>(localStorage.getItem('usuario'));
     const usuarioLogueado: Usuario = JSON.parse(jsonUsuario) as Usuario;
 

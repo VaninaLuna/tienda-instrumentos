@@ -37,7 +37,7 @@ function OpcionesGrilla({ setIdCategoria, usuarioLogueado }: { setIdCategoria: (
         <>
             <div className="d-flex justify-content-center align-items-center mb-4 mt-5" style={{ gap: '400px' }}>
 
-                {(usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN) ? <a className="btn btn-primary mr-3" style={{ width: '150px', backgroundColor: '#FE7243', fontWeight: 'initial', color: 'whitesmoke' }} href={`/formulario/0`}>Nuevo</a> : <p></p>}
+                {(usuarioLogueado && usuarioLogueado.rol && usuarioLogueado.rol.rolName == RolName.ADMIN) ? <a className="btn btn-primary mr-3" style={{ width: '150px', backgroundColor: '#e06f72', border: '#e06f72', fontWeight: 'initial', color: 'whitesmoke' }} href={`/formulario/0`}>Nuevo</a> : <p></p>}
 
                 <div className="d-flex flex-row align-items-center" style={{ gap: '10px' }}>
                     <label htmlFor="comboCategoria">Filtrar por Categoria: </label>

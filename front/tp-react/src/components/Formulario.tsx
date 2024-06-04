@@ -1,7 +1,6 @@
 import Instrumento from "../entities/InstrumentoEntity";
 import Categoria from "../entities/CategoriaEntity";
-
-import { useEffect } from "react";
+import { DragEvent, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getInstrumentoPorID, saveInstrumento } from "../services/FuncionesApi";
 import { useCategoria } from "../hooks/useCategoria";
@@ -10,9 +9,7 @@ import { CFormSelect } from "@coreui/react";
 import { Col, Row } from "react-bootstrap";
 
 export default function Formulario() {
-
     const navigate = useNavigate();
-
     const { idInstrumento } = useParams();
     const { categorias } = useCategoria();
     const { instrumento, setInstrumento, txtValidacion, validateForm, handleCategoriaChange } = useFormulario(new Instrumento());
@@ -23,25 +20,43 @@ export default function Formulario() {
     }, []);
 
     const getInstrumento = async () => {
-
         if (Number(idInstrumento) !== 0) {
-
             const instrumentoSelect = await getInstrumentoPorID(Number(idInstrumento));
-            console.log(JSON.stringify(instrumentoSelect));
             setInstrumento(instrumentoSelect);
         } else {
             const newInstrumento = new Instrumento();
             setInstrumento(newInstrumento);
         }
-    }
+    };
 
     const save = async () => {
-
+        console.log(instrumento)
         if (validateForm()) {
             await saveInstrumento(instrumento);
             navigate('/grilla');
         }
-    }
+    };
+
+    const handleImageDrop = (e: DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+
+            reader.onload = (event) => {
+                if (event.target && event.target.result) {
+                    const result = String(event.target.result);
+                    setInstrumento({ ...instrumento, imagenPath: result.split(',')[0], imagen: result.split(',')[1] });
+                }
+            };
+
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+    };
 
     return (
         <>
@@ -66,7 +81,9 @@ export default function Formulario() {
                 </Row>
                 <div className="mb-3">
                     <label htmlFor="txtImagen" className="form-label">Imagen</label>
-                    <input type="text" id='txtImagen' className="form-control" placeholder="Ingrese el path de la imagen" defaultValue={instrumento?.imagen} onChange={e => instrumento.imagen = String(e.target.value)} />
+                    <div className="border p-3" onDrop={handleImageDrop} onDragOver={handleDragOver} style={{ height: '200px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '2px dashed #ccc' }}>
+                        {instrumento.imagenPath ? <img src={`${instrumento?.imagenPath},${instrumento?.imagen}`} alt={instrumento.instrumento} style={{ maxHeight: '100%', maxWidth: '100%' }} /> : <p>Arrastre y suelte una imagen aquí</p>}
+                    </div>
                 </div>
                 <Row>
                     <Col>
@@ -111,14 +128,13 @@ export default function Formulario() {
                 </div>
 
                 <div className="col mb-4">
-                    <button onClick={save} className="btn btn-success" type="button">
+                    <a href={`/grilla`} style={{ paddingRight: "30px" }}>
+                        <button type="button" className="btn btn-warning" >Volver</button>
+                    </a>
+                    <button onClick={save} className="btn btn-success" style={{ width: '150px', backgroundColor: '#e06f72', border: '#e06f72', fontWeight: 'initial', color: 'whitesmoke' }} type="button">
                         Guardar
                     </button>
-                    <a href={`/grilla`} style={{ padding: "30px" }}>
-                        <button type="button" className="btn btn-warning">Volver</button>
-                    </a>
                 </div>
-
             </div>
         </>
     )
