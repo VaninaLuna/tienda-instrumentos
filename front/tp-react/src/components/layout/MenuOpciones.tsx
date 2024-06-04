@@ -11,7 +11,7 @@ export function MenuOpciones() {
     return (
         <>
             <div className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#d1cbc0' }} >
-                <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ paddingRight: '50px' }}>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ paddingRight: '20px' }}>
 
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         {(!usuarioLogueado || !usuarioLogueado.rol) ? (
@@ -24,9 +24,14 @@ export function MenuOpciones() {
                                 </li>
                             </>
                         ) : (
-                            <li className="nav-item">
-                                <Logout />
-                            </li>
+                            <>
+                                <li style={{ paddingRight: "10px", paddingTop: "5px" }}>
+                                    <p>Usuario: {usuarioLogueado.nombreUsuario} - {usuarioLogueado.rol.rolName}</p>
+                                </li>
+                                <li className="nav-item">
+                                    <Logout />
+                                </li>
+                            </>
                         )}
                     </ul>
                 </div>
