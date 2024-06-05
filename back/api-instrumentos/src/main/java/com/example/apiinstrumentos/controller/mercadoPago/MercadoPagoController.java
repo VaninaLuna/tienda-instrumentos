@@ -35,9 +35,9 @@ public class MercadoPagoController {
             items.add(itemRequest);
 
             PreferenceBackUrlsRequest backURL = PreferenceBackUrlsRequest.builder()
-                    .success("http://localhost:5173/mpsuccess")
-                    .pending("http://localhost:5173/mppending")
-                    .failure("http://localhost:5173/mpfailure")
+                    .success("http://localhost:5173/home")
+                    .pending("http://localhost:5173/home")
+                    .failure("http://localhost:5173/home")
                     .build();
 
             PreferenceRequest preferenceRequest = PreferenceRequest.builder()
