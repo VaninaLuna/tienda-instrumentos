@@ -31,7 +31,7 @@ export default function Formulario() {
 
     const save = async () => {
         console.log(instrumento)
-        if (validateForm()) {
+        if (validateForm()) {            
             await saveInstrumento(instrumento);
             navigate('/grilla');
         }
